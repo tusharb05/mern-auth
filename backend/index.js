@@ -6,6 +6,7 @@ const cors = require('cors')
 const PORT = process.env.PORT || 5000
 const registerRoute = require('./routes/register')
 const loginRoute = require('./routes/login')
+const verifyRoute = require('./routes/verify')
 
 dotenv.config()
 
@@ -18,5 +19,6 @@ app.use(cors())
 //Route middlewares
 app.use('/api/user/register', registerRoute)
 app.use('/api/user/login', loginRoute)
+app.use('/api/user/verify', verifyRoute)
 
 app.listen(PORT, ()=>console.log('Server running'))

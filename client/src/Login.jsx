@@ -23,6 +23,7 @@ const Login = () => {
     })
     .then(res=>res.json())
     .then(data=>{
+      // console.log(data)
       if(data.status==='logged in'){
         setLoginDetails({...data._doc})
         localStorage.setItem(
@@ -32,11 +33,6 @@ const Login = () => {
       }
     })
 
-    // setLoginDetails({ username, password });
-    // localStorage.setItem(
-    //   "loginDetails",
-    //   JSON.stringify({ username, password })
-    // );
   };
 
   return (

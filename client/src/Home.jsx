@@ -14,7 +14,7 @@ const Home = () => {
 
     if (localStorage.getItem('loginDetails')!==null) {
       
-      fetch('http://localhost:5000/api/user/login', {
+      fetch('http://localhost:5000/api/user/verify', {
         method: 'POST',
         body: localStorage.getItem('loginDetails'),
         headers: {
@@ -23,7 +23,7 @@ const Home = () => {
       })
       .then(res=>res.json())
       .then(data=>{
-        setLoggedIn(true)
+        if(data.status==='logged in') return setLoggedIn(true)
       })
 
     } else {
